@@ -1,4 +1,9 @@
 import seq_features
+import pytest
+def test_number_negatives_for_invalid_amino_acid():
+    with pytest.raises(RuntimeError) as excinfo:
+        seq_features.number_negatives('Z')
+    excinfo.match("Z is not a valid amino acid")
 
 def test_number_negatives_single_E_or_D():
     """Perform unit tests on number_negative for single AA"""
